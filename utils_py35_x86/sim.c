@@ -33338,7 +33338,7 @@ if (!__Pyx_RefNanny) {
  * from .outWriter import outWriter
  * from .analysis import Analysis             # <<<<<<<<<<<<<<
  * from .debug import Debugger
- * import ipdb
+ * #import ipdb
  */
   __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -33358,7 +33358,7 @@ if (!__Pyx_RefNanny) {
  * from .outWriter import outWriter
  * from .analysis import Analysis
  * from .debug import Debugger             # <<<<<<<<<<<<<<
- * import ipdb
+ * #import ipdb
  * import json
  */
   __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
@@ -33375,21 +33375,9 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "sim.py":17
- * from .analysis import Analysis
- * from .debug import Debugger
- * import ipdb             # <<<<<<<<<<<<<<
- * import json
- * from .quantization_utils import Qnn
- */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_ipdb, 0, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 17, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_ipdb, __pyx_t_1) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
   /* "sim.py":18
  * from .debug import Debugger
- * import ipdb
+ * #import ipdb
  * import json             # <<<<<<<<<<<<<<
  * from .quantization_utils import Qnn
  * 
@@ -33400,7 +33388,7 @@ if (!__Pyx_RefNanny) {
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "sim.py":19
- * import ipdb
+ * #import ipdb
  * import json
  * from .quantization_utils import Qnn             # <<<<<<<<<<<<<<
  * 
