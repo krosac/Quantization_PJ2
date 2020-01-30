@@ -62,7 +62,10 @@ make -j4
 If it completes to 100% without error, we build TVM successfully. 
 ## Implement quantization functions
 **You are required to complete $TVM_HOME/python/tvm/relay/utils/quantization_utils.py**
-
+Try the command below to full-precision Tensorflow .pb
+```
+python3 main.py --input shufflenet_v1.onnx --input_shape 1 224 224 3 --output_dir tmp --gen_pb
+```
 The following command quantizes the input model and dumps quantized weights to output_dir.
 ```
 python3 main.py --input shufflenet_v1.onnx --input_shape 1 224 224 3 --output_dir tmp --gen_pb --preprocess torchvision --gen_fx_pb --reference_input ILSVRC2012_val_00001110.JPEG --dump
