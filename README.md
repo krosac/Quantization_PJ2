@@ -12,7 +12,7 @@ opencv
 sudo apt-get install libsm6 libxrender1 libfontconfig1
 sudo apt-get install opencv-python
 ```
-Also install Tensorflow(<2.0) for .pb file or PyTorch for .onnx. This is the cpu version. (Check out how to install gpu version if needed on their offical websites.)
+Also install Tensorflow(<2.0) for .pb file or PyTorch for .onnx. This is the cpu version. (If you would like to install gpu version, please check out on their offical websites.)
 ```
 sudo pip install tensorflow
 sudo pip install torch torchvision
@@ -31,12 +31,12 @@ Get our Quantization_PJ2 folder. Run script inside to add files in TVM folder. *
 gcc -pthread -B /my/conda/env/path/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/my/conda/env/path/include/your-python3.xm -c XXX.c -o XXX.o
 gcc -pthread -shared -B /my/conda/env/path/compiler_compat -L/my/conda/env/path/lib -Wl,-rpath=/my/conda/env/path/lib -Wl,--no-as-needed -Wl,--sysroot=/ XXX.o -o XXX.so
 ```
-Run script.
+If version matches, modify folder name and run script.
 ```
-mv utils_pyxx_xxx utils # modify the folder name here
-sh patch.sh
+mv utils_pyxx_xxx utils # modify the folder name here i.e. mv utils_py35_x86 utils
+sh patch.sh # cp utils to tvm/relay
 ```
-Prepare cmake configurations.
+Then we continue to build TVM. Prepare cmake configurations.
 ```
 cd $TVM_HOME
 cp cmake/config.cmake .
@@ -63,7 +63,7 @@ If it completes to 100% without error, we build TVM successfully.
 
 The following command quantizes the input model and dumps quantized weights to output_dir.
 ```
-python from_tensorflow.py --input ~/tvm/example/tests/shufflenet_v1/ShuffleNet-1g8-Pytorch/shufflenet_v1.onnx --input_shape 1 224 224 3 --output_dir tmp --gen_pb --preprocess torchvision --gen_fx_pb --reference_input ILSVRC2012_val_00001110.JPEG --dump
+python from_tensorflow.py --input shufflenet_v1.onnx --input_shape 1 224 224 3 --output_dir tmp --gen_pb --preprocess torchvision --gen_fx_pb --reference_input ILSVRC2012_val_00001110.JPEG --dump
 ```
 
 
