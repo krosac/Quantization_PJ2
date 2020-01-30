@@ -14,6 +14,8 @@ parser.add_argument('--preprocess', type=str, nargs='?', default='', help='prepr
 parser.add_argument('--dump', type=bool, nargs='?', const=True, default=False, help='dump weights&ofm to <output_dir>')
 parser.add_argument('--darknet_darkflow', type=bool, nargs='?', const=True, default=False, help='indicate whether input pb file is converted from darknet by darkflow')
 parser.add_argument('--reference_input', type=str, nargs='?', default='', help='Input image for fraction length')
+parser.add_argument('--output_tensor_names',type=str, nargs='+', default=['output_fx'], help='specify output tensor names if there are more than one')
+parser.add_argument('--dump_format',type=str, nargs='?', default='npy', help='specify output weights format i.e. npy/mat')
 args = parser.parse_args() 
 
 mpath = args.input
@@ -27,7 +29,9 @@ config_dict = {
     'dump':args.dump,\
     'input_shape':input_shape,\
     'output_dir':fx_output_dir,\
-    'ref_input':args.reference_input
+    'ref_input':args.reference_input,\
+    'out_names':args.output_tensor_names,\
+    'dump_format':args.dump_format
     }
 if args.gen_fx_pb:
     assert not args.reference_input=='','reference_input needs to be specified for quantization'
@@ -40,6 +44,8 @@ if args.dump and os.path.exists(args.output_dir):
         os.system('rm '+os.path.join(args.output_dir,'*.mat'))
     if any(file.endswith(('.npy')) for file in files):
         os.system('rm '+os.path.join(args.output_dir,'*.npy'))
+if args.dump:
+    assert args.dump_format in ['npy','mat'],'dump_format needs to be mat/npy'
 ######################################################################
 # Import the graph to Relay
 # -------------------------
