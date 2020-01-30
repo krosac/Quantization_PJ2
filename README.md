@@ -4,9 +4,19 @@ Follow https://docs.tvm.ai/install/from_source.html to install prerequisites. An
 ```
 sudo apt-get update
 sudo apt-get install -y python python-dev python-setuptools gcc libtinfo-dev zlib1g-dev build-essential cmake
-sudo apt-get install ocl-icd-opencl-dev
+sudo apt-get install -y ocl-icd-opencl-dev libxml2-dev
+sudo pip3 install decorator antlr4-python3-runtime attrs scipy
+```
+opencv
+```
+sudo apt-get install libsm6 libxrender1 libfontconfig1
+sudo apt-get install opencv-python
 ```
 Also install Tensorflow(<2.0) for .pb file or PyTorch for .onnx. 
+```
+sudo pip install tensorflow
+sudo pip install torch torchvision
+```
 Then we install TVM stack.
 ```
 git clone --recursive https://github.com/apache/incubator-tvm tvm
