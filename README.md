@@ -73,4 +73,4 @@ python3 main.py --input shufflenet_v1.onnx --input_shape 1 224 224 3 --output_di
 ```
 ILSVRC2012_val_00001110.JPEG is reference input from ImageNet ILSVRC2012 validation set. Please check preprossing method for your model, which is important to get correct evaluation result.
 
-
+YOLOv3 has mutiple output tensors. Specify them with "--output_tensor_names output_fx BiasAdd_58 BiasAdd_66". Replace tensor names with names in your model.
