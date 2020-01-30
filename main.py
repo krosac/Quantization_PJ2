@@ -9,10 +9,10 @@ parser.add_argument('--input_shape',metavar='SHAPE', type=int, nargs='+', defaul
 parser.add_argument('--output_dir',metavar='DIR', type=str, nargs='?', default='./output/', help='output dir for generated weights')
 parser.add_argument('--gen_pb', type=bool, nargs='?', const=True, default=False, help='generate pb')
 parser.add_argument('--gen_fx_pb', type=bool, nargs='?', const=True, default=False, help='generate pb for OPU simulation')
-parser.add_argument('--merge_bn', type=bool, nargs='?', const=True, default=False, help='merge bn mul&add to conv+bias as possible')
+parser.add_argument('--merge_bn', type=bool, nargs='?', const=True, default=False, help='merge bn mul&add to conv+bias as possible') # not work for now
 parser.add_argument('--preprocess', type=str, nargs='?', default='', help='preprocess method used for evaluation')
 parser.add_argument('--dump', type=bool, nargs='?', const=True, default=False, help='dump weights&ofm to <output_dir>')
-parser.add_argument('--darknet_darkflow', type=bool, nargs='?', const=True, default=False, help='indicate whether input pb file is converted from darknet by darkflow')
+parser.add_argument('--darknet_darkflow', type=bool, nargs='?', const=True, default=False, help='indicate whether input pb file is converted from darknet by darkflow') # not work for now
 parser.add_argument('--reference_input', type=str, nargs='?', default='', help='Input image for fraction length')
 parser.add_argument('--output_tensor_names',type=str, nargs='+', default=['output_fx'], help='specify output tensor names if there are more than one')
 parser.add_argument('--dump_format',type=str, nargs='?', default='npy', help='specify output weights format i.e. npy/mat')
