@@ -1,4 +1,6 @@
-# Quantization_tvm_tf
+# Quantization Tool for 209 Project 2
+Thanks for taking the class. It could take time if you are not familiar with buidling software frameworks. Don't worry and follow the steps below. Hope you can get started soon:) Feel free to send emails to me if there is any question. Check slides on ccle for email address.
+
 ## Build
 Follow https://docs.tvm.ai/install/from_source.html to install prerequisites. Anaconda or virtualenv is recommended. 
 ```
