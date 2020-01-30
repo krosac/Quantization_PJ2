@@ -70,6 +70,6 @@ The following command quantizes the input model and dumps quantized weights to o
 ```
 python3 main.py --input shufflenet_v1.onnx --input_shape 1 224 224 3 --output_dir tmp --gen_pb --preprocess torchvision --gen_fx_pb --reference_input ILSVRC2012_val_00001110.JPEG --dump
 ```
-
+ILSVRC2012_val_00001110.JPEG is reference input from ImageNet ILSVRC2012 validation set. Please check preprossing method for your model, which is important to get correct evaluation result.
 
 
