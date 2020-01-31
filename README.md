@@ -78,7 +78,7 @@ YOLOv3 has mutiple output tensors. Specify them with "--output_tensor_names outp
 ## Model List
 Model | Input Shape | Source
 ------|--------|--------|
-inception v1|	224x224x3 |https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v1.py
+[//]: "inception v1|	224x224x3 |https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v1.py"
 inception v3|	299x299x3 |https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v3.py
 inception v4|	299x299x3	|https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v4.py
 resnet v1 50|	224x224x3	|https://pytorch.org/docs/stable/torchvision/models.html
