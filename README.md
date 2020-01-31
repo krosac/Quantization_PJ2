@@ -78,13 +78,8 @@ YOLOv3 has mutiple output tensors. Specify them with "--output_tensor_names outp
 ## Model List
 Model | Input Shape | Source
 ------|--------|--------|
-[//]: "inception v1|	224x224x3 |https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v1.py"
-inception v3|	299x299x3 |https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v3.py
-inception v4|	299x299x3	|https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v4.py
 resnet v1 50|	224x224x3	|https://pytorch.org/docs/stable/torchvision/models.html
 resnet v2 50|	224x224x3	|https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v2.py
-vgg16	|224x224x3	|https://github.com/tensorflow/models/blob/master/research/slim/nets/vgg.py
-vgg19	|224x224x3	|https://github.com/tensorflow/models/blob/master/research/slim/nets/vgg.py
 yolov3|	416x416x3	|https://github.com/eriklindernoren/PyTorch-YOLOv3
 mobilenet v1	|224x224x3	|https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.md
 mobilenet v2	|224x224x3	|https://github.com/tensorflow/models/tree/master/research/slim/nets/mobilenet
