@@ -93,3 +93,5 @@ densenet161	|224x224x3	|https://pytorch.org/docs/stable/torchvision/models.html
 shufflenet_v1	|224x224x3	|https://github.com/ericsun99/ShuffleNet-1g8-Pytorch
 xception	|229x229x3	|https://github.com/tstandley/Xception-PyTorch
 squeezenet	|224x224x3	|https://pytorch.org/docs/stable/torchvision/models.html
+
+You can use basic 1.0 224 configuration for MobileNets
