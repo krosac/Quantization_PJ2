@@ -74,3 +74,22 @@ python3 main.py --input shufflenet_v1.onnx --input_shape 1 224 224 3 --output_di
 ILSVRC2012_val_00001110.JPEG is reference input from ImageNet ILSVRC2012 validation set. Please check preprossing method for your model, which is important to get correct evaluation result.
 
 YOLOv3 has mutiple output tensors. Specify them with "--output_tensor_names output_fx BiasAdd_58 BiasAdd_66". Replace tensor names with names in your model.
+
+## Model List
+Model | Input Shape | Source
+------|--------|--------|
+inception v1|	224x224x3 |https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v1.py
+inception v3|	299x299x3 |https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v3.py
+inception v4|	299x299x3	|https://github.com/tensorflow/models/blob/master/research/slim/nets/inception_v4.py
+resnet v1 50|	224x224x3	|https://pytorch.org/docs/stable/torchvision/models.html
+resnet v2 50|	224x224x3	|https://github.com/tensorflow/models/blob/master/research/slim/nets/resnet_v2.py
+vgg16	|224x224x3	|https://github.com/tensorflow/models/blob/master/research/slim/nets/vgg.py
+vgg19	|224x224x3	|https://github.com/tensorflow/models/blob/master/research/slim/nets/vgg.py
+yolov3|	416x416x3	|https://github.com/eriklindernoren/PyTorch-YOLOv3
+mobilenet v1	|224x224x3	|https://github.com/tensorflow/models/blob/master/research/slim/nets/mobilenet_v1.md
+mobilenet v2	|224x224x3	|https://github.com/tensorflow/models/tree/master/research/slim/nets/mobilenet
+mobilenet v3	|224x224x3	|https://github.com/xiaolai-sqlai/mobilenetv3/blob/master/mobilenetv3.py
+densenet161	|224x224x3	|https://pytorch.org/docs/stable/torchvision/models.html
+shufflenet_v1	|224x224x3	|https://github.com/ericsun99/ShuffleNet-1g8-Pytorch
+xception	|229x229x3	|https://github.com/tstandley/Xception-PyTorch
+squeezenet	|224x224x3	|https://pytorch.org/docs/stable/torchvision/models.html
