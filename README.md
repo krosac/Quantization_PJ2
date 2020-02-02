@@ -2,6 +2,7 @@
 Thanks for taking the class. It could take time if you are not familiar with buidling software frameworks. Don't worry and follow the steps below. Hope you can get started soon:) Feel free to send emails to me if there is any question. Check project 2 slides on ccle for email address. (Installation has been verified on AWS with Ubuntu16.04. It should also work on your own workstation.)
 
 **Note**
+
 The guide below is for Linux system. If you prefer to Windows system, a pre-built version is also provided as utils_py37_x86_win64. In that case you would need to install TVM (and possibly LLVM) on Windows from scratch by replacing build_module.cc at tvm/src/relay/backend first. Then copy utils folder to tvm/python/tvm/relay/. We recommend you to work on Linux, if possible, because building code on Windows could be tricky and lack of documentations.
 
 ## Build
