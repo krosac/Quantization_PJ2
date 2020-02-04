@@ -14,7 +14,7 @@ sudo pip3 install decorator antlr4-python3-runtime attrs scipy
 opencv
 ```
 sudo apt-get install libsm6 libxrender1 libfontconfig1
-sudo apt-get install opencv-python
+sudo pip3 install opencv-python
 ```
 Also install Tensorflow(<2.0) for .pb file or PyTorch for .onnx. This is the cpu version. (If you would like to install gpu version, please check out on their offical websites.)
 ```
