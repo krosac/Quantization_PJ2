@@ -30,7 +30,7 @@ Set environment variables. (You can update ~/.bashrc so that every time you log 
 export TVM_HOME=/your/tvm/root/path
 export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:$TVM_HOME/nnvm/python
 ```
-Get our Quantization_PJ2 folder. Run script inside to add files in TVM folder. **Make sure pre-compiled .so files match your python version and platform**. We provide pre-built version on x86 platform with python3.5/3.7. If not, try to generate .so files for **each** .c file following commands below.
+Get our Quantization_PJ2 folder. Run script patch.sh to add files in TVM folder. **Make sure pre-compiled .so files match your python version and platform**. We provide pre-built version on x86 platform with python3.5/3.7. If not, try to generate .so files for **each** .c file following commands below. **(Skip this step if version matches)**
 ```
 gcc -pthread -B /my/conda/env/path/compiler_compat -Wl,--sysroot=/ -Wsign-compare -DNDEBUG -g -fwrapv -O3 -Wall -Wstrict-prototypes -fPIC -I/my/conda/env/path/include/your-python3.xm -c XXX.c -o XXX.o
 gcc -pthread -shared -B /my/conda/env/path/compiler_compat -L/my/conda/env/path/lib -Wl,-rpath=/my/conda/env/path/lib -Wl,--no-as-needed -Wl,--sysroot=/ XXX.o -o XXX.so
