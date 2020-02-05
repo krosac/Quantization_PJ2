@@ -86,7 +86,7 @@ class Qnn:
         - word_len : word length of quantized data
         
         Returns:
-        - fl_opt : fraction length that leads to minimal quantization error
+        - fl_opt : fraction length (python built-in int data type) that leads to minimal quantization error
         '''
         # ================================================================ #
         # YOUR CODE HERE:
