@@ -97,4 +97,4 @@ If ImageNet official site doesn't work, try http://academictorrents.com/browse.p
 ## Debugging
 Input and output tensor names in generated test.pb are "input_fx" and "output_fx". YOLOv3 has mutiple output tensors. Specify them with "--output_tensor_names output_fx BiasAdd_58 BiasAdd_66". Replace tensor names with names in your model. 
 
-By adding "--dump" flag, main.py generates weights/biases/intermediate feature maps to the directory specified by "--output_dir". 
+By adding "--dump" flag, main.py generates weights/biases/intermediate feature maps to the directory specified by "--output_dir". Compare quantized ones with full-precison ones to make sure your implementation works correctly.
