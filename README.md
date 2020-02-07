@@ -9,7 +9,7 @@ Install prerequisites first. If still dependecies are missing, follow https://do
 sudo apt-get update
 sudo apt-get install -y python python-dev python-setuptools gcc libtinfo-dev zlib1g-dev build-essential cmake
 sudo apt-get install -y ocl-icd-opencl-dev libxml2-dev
-sudo pip3 install decorator antlr4-python3-runtime attrs scipy
+sudo pip3 install decorator antlr4-python3-runtime attrs scipy ipdb
 ```
 opencv
 ```
