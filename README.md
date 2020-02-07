@@ -95,3 +95,5 @@ You can use basic 1.0 224 configuration for MobileNets
 
 ## Evaluation
 If ImageNet official site doesn't work, try http://academictorrents.com/browse.php?search=imagenet with ```transmission-cli``` on Linux. Ground truth labels are also uploaded here as val.txt.
+
+Input and output tensor names in generated test.pb are "input_fx" and "output_fx".
