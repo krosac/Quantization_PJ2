@@ -73,9 +73,7 @@ The following command quantizes the input model and dumps quantized weights to o
 ```
 python3 main.py --input shufflenet_v1.onnx --input_shape 1 224 224 3 --output_dir tmp --gen_pb --preprocess torchvision --gen_fx_pb --reference_input ILSVRC2012_val_00001110.JPEG --dump
 ```
-ILSVRC2012_val_00001110.JPEG is reference input from ImageNet ILSVRC2012 validation set. Please check preprossing method for your model, which is important to get correct evaluation result.
-
-YOLOv3 has mutiple output tensors. Specify them with "--output_tensor_names output_fx BiasAdd_58 BiasAdd_66". Replace tensor names with names in your model.
+ILSVRC2012_val_00001110.JPEG is a reference input sampled from ImageNet ILSVRC2012 validation set. Please check preprossing method for your model, which is important to get correct evaluation result.
 
 ## Model List
 Model | Input Shape | Source
@@ -92,3 +90,11 @@ xception	|229x229x3	|https://github.com/tstandley/Xception-PyTorch
 squeezenet	|224x224x3	|https://pytorch.org/docs/stable/torchvision/models.html
 
 You can use basic 1.0 224 configuration for MobileNets
+
+## Evaluation
+If ImageNet official site doesn't work, try http://academictorrents.com/browse.php?search=imagenet with ```transmission-cli``` on Linux. Ground truth labels are also uploaded here as val.txt.
+
+## Debugging
+Input and output tensor names in generated test.pb are "input_fx" and "output_fx". YOLOv3 has mutiple output tensors. Specify them with "--output_tensor_names output_fx BiasAdd_58 BiasAdd_66". Replace tensor names with names in your model. 
+
+By adding "--dump" flag, main.py generates weights/biases/intermediate feature maps to the directory specified by "--output_dir". Compare quantized ones with full-precison ones to make sure your implementation works correctly.
