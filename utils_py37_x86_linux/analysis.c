@@ -1130,6 +1130,12 @@ static PyObject* __Pyx_PyObject_CallMethod1(PyObject* obj, PyObject* method_name
 /* append.proto */
 static CYTHON_INLINE int __Pyx_PyObject_Append(PyObject* L, PyObject* x);
 
+/* PyDictContains.proto */
+static CYTHON_INLINE int __Pyx_PyDict_ContainsTF(PyObject* item, PyObject* dict, int eq) {
+    int result = PyDict_Contains(dict, item);
+    return unlikely(result < 0) ? result : (result == (eq == Py_EQ));
+}
+
 /* None.proto */
 static CYTHON_INLINE void __Pyx_RaiseClosureNameError(const char *varname);
 
@@ -2004,31 +2010,13 @@ static PyObject *__pyx_pf_8analysis_8Analysis___init__(CYTHON_UNUSED PyObject *_
   /* "analysis.py":11
  *         # [x,y] x->module count, y->execution phase order, add/multiply for elementise op, bias add/mul would virtually mapped to ipa so not counted here
  *         self.template = { \
- *             'interpolation':[1,0], \             # <<<<<<<<<<<<<<
- *             'pad':[1,1], \
- *             'inner_product':[1,2], \
- */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(__pyx_int_1);
-  __Pyx_GIVEREF(__pyx_int_1);
-  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_int_1);
-  __Pyx_INCREF(__pyx_int_0);
-  __Pyx_GIVEREF(__pyx_int_0);
-  PyList_SET_ITEM(__pyx_t_2, 1, __pyx_int_0);
-  if (PyDict_SetItem(__pyx_t_1, __pyx_n_u_interpolation, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "analysis.py":12
- *         self.template = { \
- *             'interpolation':[1,0], \
  *             'pad':[1,1], \             # <<<<<<<<<<<<<<
  *             'inner_product':[1,2], \
  *             'add':[1,3], \
  */
-  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyDict_NewPresized(8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -2039,14 +2027,14 @@ static PyObject *__pyx_pf_8analysis_8Analysis___init__(CYTHON_UNUSED PyObject *_
   if (PyDict_SetItem(__pyx_t_1, __pyx_n_u_pad, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "analysis.py":13
- *             'interpolation':[1,0], \
+  /* "analysis.py":12
+ *         self.template = { \
  *             'pad':[1,1], \
  *             'inner_product':[1,2], \             # <<<<<<<<<<<<<<
  *             'add':[1,3], \
  *             'multiply':[2,3], \
  */
-  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 12, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -2057,14 +2045,14 @@ static PyObject *__pyx_pf_8analysis_8Analysis___init__(CYTHON_UNUSED PyObject *_
   if (PyDict_SetItem(__pyx_t_1, __pyx_n_u_inner_product, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "analysis.py":14
+  /* "analysis.py":13
  *             'pad':[1,1], \
  *             'inner_product':[1,2], \
  *             'add':[1,3], \             # <<<<<<<<<<<<<<
  *             'multiply':[2,3], \
  *             'comparator':[1,3], \
  */
-  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 13, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -2075,14 +2063,14 @@ static PyObject *__pyx_pf_8analysis_8Analysis___init__(CYTHON_UNUSED PyObject *_
   if (PyDict_SetItem(__pyx_t_1, __pyx_n_u_add, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "analysis.py":15
+  /* "analysis.py":14
  *             'inner_product':[1,2], \
  *             'add':[1,3], \
  *             'multiply':[2,3], \             # <<<<<<<<<<<<<<
  *             'comparator':[1,3], \
  *             'pool_pad':[1,3], \
  */
-  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_2);
   __Pyx_GIVEREF(__pyx_int_2);
@@ -2093,14 +2081,14 @@ static PyObject *__pyx_pf_8analysis_8Analysis___init__(CYTHON_UNUSED PyObject *_
   if (PyDict_SetItem(__pyx_t_1, __pyx_n_u_multiply, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "analysis.py":16
+  /* "analysis.py":15
  *             'add':[1,3], \
  *             'multiply':[2,3], \
  *             'comparator':[1,3], \             # <<<<<<<<<<<<<<
  *             'pool_pad':[1,3], \
- *             'pooling':[1,3] \
+ *             'pooling':[1,3], \
  */
-  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -2111,14 +2099,14 @@ static PyObject *__pyx_pf_8analysis_8Analysis___init__(CYTHON_UNUSED PyObject *_
   if (PyDict_SetItem(__pyx_t_1, __pyx_n_u_comparator, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "analysis.py":17
+  /* "analysis.py":16
  *             'multiply':[2,3], \
  *             'comparator':[1,3], \
  *             'pool_pad':[1,3], \             # <<<<<<<<<<<<<<
- *             'pooling':[1,3] \
- *         }
+ *             'pooling':[1,3], \
+ *             'interpolation':[1,4], \
  */
-  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 16, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -2129,14 +2117,14 @@ static PyObject *__pyx_pf_8analysis_8Analysis___init__(CYTHON_UNUSED PyObject *_
   if (PyDict_SetItem(__pyx_t_1, __pyx_n_u_pool_pad, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "analysis.py":18
+  /* "analysis.py":17
  *             'comparator':[1,3], \
  *             'pool_pad':[1,3], \
- *             'pooling':[1,3] \             # <<<<<<<<<<<<<<
+ *             'pooling':[1,3], \             # <<<<<<<<<<<<<<
+ *             'interpolation':[1,4], \
  *         }
- *         self.tot_phase = 4 #np.max(np.array([item[1] for _,item in enumerate(self.template)]))+1
  */
-  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_INCREF(__pyx_int_1);
   __Pyx_GIVEREF(__pyx_int_1);
@@ -2147,18 +2135,36 @@ static PyObject *__pyx_pf_8analysis_8Analysis___init__(CYTHON_UNUSED PyObject *_
   if (PyDict_SetItem(__pyx_t_1, __pyx_n_u_pooling, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
+  /* "analysis.py":18
+ *             'pool_pad':[1,3], \
+ *             'pooling':[1,3], \
+ *             'interpolation':[1,4], \             # <<<<<<<<<<<<<<
+ *         }
+ *         self.tot_phase = 4 #np.max(np.array([item[1] for _,item in enumerate(self.template)]))+1
+ */
+  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 18, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  __Pyx_INCREF(__pyx_int_1);
+  __Pyx_GIVEREF(__pyx_int_1);
+  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_int_1);
+  __Pyx_INCREF(__pyx_int_4);
+  __Pyx_GIVEREF(__pyx_int_4);
+  PyList_SET_ITEM(__pyx_t_2, 1, __pyx_int_4);
+  if (PyDict_SetItem(__pyx_t_1, __pyx_n_u_interpolation, __pyx_t_2) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
   /* "analysis.py":10
  *         self.nodes = nodes
  *         # [x,y] x->module count, y->execution phase order, add/multiply for elementise op, bias add/mul would virtually mapped to ipa so not counted here
  *         self.template = { \             # <<<<<<<<<<<<<<
- *             'interpolation':[1,0], \
  *             'pad':[1,1], \
+ *             'inner_product':[1,2], \
  */
   if (__Pyx_PyObject_SetAttrStr(__pyx_v_self, __pyx_n_s_template, __pyx_t_1) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "analysis.py":20
- *             'pooling':[1,3] \
+ *             'interpolation':[1,4], \
  *         }
  *         self.tot_phase = 4 #np.max(np.array([item[1] for _,item in enumerate(self.template)]))+1             # <<<<<<<<<<<<<<
  *         self.annotate_outputs()
@@ -6485,7 +6491,7 @@ static PyObject *__pyx_pf_8analysis_8Analysis_24op_map(CYTHON_UNUSED PyObject *_
  *             'nn.log_softmax':self._ignore,
  *             'squeeze':self._others             # <<<<<<<<<<<<<<
  *         }
- *         '''if node.op_name not in mapping_fn_dict:
+ *         if node.op_name not in mapping_fn_dict:
  */
   __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_v_self, __pyx_n_s_others_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 188, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
@@ -6494,9 +6500,44 @@ static PyObject *__pyx_pf_8analysis_8Analysis_24op_map(CYTHON_UNUSED PyObject *_
   __pyx_v_mapping_fn_dict = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
+  /* "analysis.py":190
+ *             'squeeze':self._others
+ *         }
+ *         if node.op_name not in mapping_fn_dict:             # <<<<<<<<<<<<<<
+ *             return 'ignore'
+ *         x = mapping_fn_dict[node.op_name](node)
+ */
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_v_node, __pyx_n_s_op_name); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = (__Pyx_PyDict_ContainsTF(__pyx_t_1, __pyx_v_mapping_fn_dict, Py_NE)); if (unlikely(__pyx_t_3 < 0)) __PYX_ERR(0, 190, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_2 = (__pyx_t_3 != 0);
+  if (__pyx_t_2) {
+
+    /* "analysis.py":191
+ *         }
+ *         if node.op_name not in mapping_fn_dict:
+ *             return 'ignore'             # <<<<<<<<<<<<<<
+ *         x = mapping_fn_dict[node.op_name](node)
+ *         # print(node.op_name,'->',x)
+ */
+    __Pyx_XDECREF(__pyx_r);
+    __Pyx_INCREF(__pyx_n_u_ignore);
+    __pyx_r = __pyx_n_u_ignore;
+    goto __pyx_L0;
+
+    /* "analysis.py":190
+ *             'squeeze':self._others
+ *         }
+ *         if node.op_name not in mapping_fn_dict:             # <<<<<<<<<<<<<<
+ *             return 'ignore'
+ *         x = mapping_fn_dict[node.op_name](node)
+ */
+  }
+
   /* "analysis.py":192
- *         '''if node.op_name not in mapping_fn_dict:
- *             return 'ignore'   '''
+ *         if node.op_name not in mapping_fn_dict:
+ *             return 'ignore'
  *         x = mapping_fn_dict[node.op_name](node)             # <<<<<<<<<<<<<<
  *         # print(node.op_name,'->',x)
  *         return x
