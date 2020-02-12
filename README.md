@@ -100,4 +100,4 @@ Input and output tensor names in generated test.pb are "input_fx" and "output_fx
 By adding "--dump" flag, main.py generates weights/biases/intermediate feature maps to the directory specified by "--output_dir". Compare quantized ones with full-precison ones to make sure your implementation works correctly.
 
 Inline-style: 
-![alt text](https://github.com/krosac/Quantization_PJ2/blob/master/quantization_screenshpt.JPG)
+![alt text](https://github.com/krosac/Quantization_PJ2/blob/master/quantization_screenshot.JPG)
