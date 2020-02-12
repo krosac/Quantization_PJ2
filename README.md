@@ -102,4 +102,7 @@ By adding "--dump" flag, main.py generates weights/biases/intermediate feature m
 Example terminal output with quantization-related flags applied: 
 ![alt text](https://github.com/krosac/Quantization_PJ2/blob/master/quantization_screenshot.JPG)
 
-"fm_9", "weight_9", "bias_9" would be found in the directory specified by "--output_dir". "9" indicates the layer index. "<<< feature map 8/8 >>>" incdicates the fraction length, which is the output of your search(), is 8 and word length is 8.
+"fm_9", "weight_9", "bias_9" would be found in the directory specified by "--output_dir". "9" indicates the layer index. Let's take a look line by line.
+
+"<<< feature map 1/8 >>>" incdicates the fraction length, which is the output of your search(), is 1 and word length is 8. After quantization of intermediate feature map, conv2d is performed with weight quantized to fraction length=8 and word lenght=8. "<1>" represents the number of groups for the conv2d above. If it is 1, then it is a converntional conv2d. If it equals the inpute channel number, then it is a depthwise conv2d. Then "(1,27,27,128)" stands for the output shape of conv2d, where four dimensions are NHWC. After that, bias addition is applied. Bias is quantized to fraction length=18, word length=16. Finally, relu is applied to the output of bias addition. Output shapes of bias addtion and relu are also listed below the operation names.
+
