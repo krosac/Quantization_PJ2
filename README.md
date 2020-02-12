@@ -102,4 +102,4 @@ By adding "--dump" flag, main.py generates weights/biases/intermediate feature m
 Example terminal output with quantization-related flags applied: 
 ![alt text](https://github.com/krosac/Quantization_PJ2/blob/master/quantization_screenshot.JPG)
 
-"fm_9", "weight_9", "bias_9" would be found in the directory specified by "--output_dir". "9" indicates the layer index.  
+"fm_9", "weight_9", "bias_9" would be found in the directory specified by "--output_dir". "9" indicates the layer index. "<<< feature map 8/8 >>>" incdicates the fraction length, which is the output of your search(), is 8 and word length is 8.
