@@ -94,6 +94,7 @@ You can use basic 1.0 224 configuration for MobileNets
 ## Evaluation
 If ImageNet official site doesn't work, try http://academictorrents.com/browse.php?search=imagenet with ```transmission-cli``` on Linux. Ground truth labels are also uploaded here as val.txt.
 
+Also, I have uploaded validation set to https://drive.google.com/file/d/1_yXhr4wXlyJd2EOB69i7CGikJFWG5hiJ/view?usp=sharing in case provided links cannot work.
 ## Debugging
 Input and output tensor names in generated test.pb are "input_fx" and "output_fx". YOLOv3 has mutiple output tensors. Specify them with "--output_tensor_names output_fx BiasAdd_58 BiasAdd_66". Replace tensor names with names in your model. 
 
