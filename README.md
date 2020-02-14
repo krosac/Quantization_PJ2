@@ -21,9 +21,9 @@ Also install Tensorflow(<2.0) for .pb file or PyTorch for .onnx. This is the cpu
 sudo pip install tensorflow
 sudo pip install torch torchvision
 ```
-Then we install TVM stack.
+Then we install TVM stack. Here we will use stable old version due to the frequent updates in TVM official repository. 
 ```
-git clone --recursive https://github.com/apache/incubator-tvm tvm
+git clone --recursive https://github.com/krosac/incubator-tvm.git tvm
 ```
 Set environment variables. (You can update ~/.bashrc so that every time you log on they will be automatically exported.)
 ```
