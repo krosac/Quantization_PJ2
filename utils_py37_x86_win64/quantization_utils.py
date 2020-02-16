@@ -14,10 +14,10 @@ from . import suppress_stdout_stderr as block
 
 def tf_symbolic_convert(value, wl, fl):
     '''
-    Convert float numpy array to wl-bit low precision data with Tensorflow API
+    Convert float numpy.array/tf.Tensor to wl-bit low precision data with Tensorflow API
     
     Inputs：
-    - value : a numpy array of input data
+    - value : input data in numpy.array/tf.Tensor format
     - wl : word length of the data format to convert
     - fl : fraction length (exponent length for floating-point)
     
