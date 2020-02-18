@@ -28,7 +28,7 @@ git clone --recursive https://github.com/krosac/incubator-tvm.git tvm
 Set environment variables. (You can update ~/.bashrc so that every time you log on they will be automatically exported.)
 ```
 export TVM_HOME=/your/tvm/root/path
-export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python:$TVM_HOME/nnvm/python
+export PYTHONPATH=$TVM_HOME/python:$TVM_HOME/topi/python
 ```
 Get our Quantization_PJ2 folder. Run script patch.sh to add files in TVM folder. **Make sure pre-compiled .so files match your python version and platform**. We provide pre-built version on x86 platform with python3.5/3.7. If not, try to generate .so files for **each** .c file following commands below. **(Skip this step if version matches)**
 ```
